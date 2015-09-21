@@ -1,0 +1,16 @@
+declared-services:
+  cba-mysql:
+    label: cleardb
+    plan: spark
+applications:
+- name: pas-cbaparking
+  memory: 512M
+  instances: 1
+  host: pas-cbaparking
+  domain: mybluemix.net
+  buildpack: java_buildpack
+  path: ./target/CBACarParking-0.0.1-SNAPSHOT.jar
+  env:
+   JBP_CONFIG_IBMJDK: "version: 1.8.+"
+  services:
+    - cba-mysql 

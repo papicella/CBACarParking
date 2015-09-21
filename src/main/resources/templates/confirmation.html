@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CBA - Car Parking Application</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Latest compiled and minified CSS -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://bluemix.net/">
+                <img src="images/cba.png"
+                     th:src="@{images/cba.png}"
+                     alt="Bluemix" width="32" height="32"
+                     border="0"/>
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right  ">
+                <li><a href="/">Home</a></li>
+                <li><a href="http://bluemix.net/">Bluemix</a></li>
+                <li><a href="/">[User: <span th:text="${session.userid}" />]</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!-- NAVBAR CODE END -->
+
+<div class="bs-example">
+    <div class="page-header">
+        <h1>CBA <small>Car Parking Application - Confirmation Page</small></h1>
+    </div>
+</div>
+
+<div class="alert alert-info fade in">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    <strong>Success, Parking Location Confirmed!</strong> <b th:text="${actionStr}"></b>
+</div>
+
+<div class="clearfix">
+</div>
+
+<div>
+    <hr size="2" />
+</div>
+
+<div th:include="footer :: copy"></div>
+
+</body>
+</html>
