@@ -53,7 +53,7 @@ public class MainController
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 
         String url = String.format("http://pas-telstrasmsapi.mybluemix.net/telstrasms?to=%s&body=%s",
-                                   user.getMobileno(), "Parking confirmed, enjoy the event from the CBA parking Application");
+                                   user.getMobileno(), "Parking confirmed, enjoy the event from the CBA Parking Application");
 
         String response = restTemplate.postForObject(url, headers, String.class);
 
@@ -79,14 +79,13 @@ public class MainController
     @RequestMapping(value="/login", method = RequestMethod.POST)
     public String loginForm
             (@RequestParam(value="userid", required = true) String userid,
-             @RequestParam(value="password", required = true) String password,
+             @RequestParam(value="ticketno", required = true) String password,
              Model model,
              HttpSession session)
     {
 
         // login using userid / password
-        // TODO:
-        ParkingUsers user = usersRepository.findByLogin(userid, password);
+        ParkingUsers user = usersRepository.findByLogin(userid);
 
         List<TicketEvents> ticketEvents = ticketEventsRepository.findByUserid(user.getId());
 
@@ -98,5 +97,16 @@ public class MainController
         session.setAttribute("user", user);
 
         return "events";
+    }
+
+    @RequestMapping(value="/survey", method = RequestMethod.POST)
+    public String surveyForm
+            (@RequestParam(value="helpful", required = true) String helpful,
+             @RequestParam(value="use", required = true) String use,
+             @RequestParam(value="again", required = true) String again,
+             Model model,
+             HttpSession session)
+    {
+        return "login";
     }
 }

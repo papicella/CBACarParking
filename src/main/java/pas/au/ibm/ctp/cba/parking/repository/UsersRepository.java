@@ -6,6 +6,6 @@ import pas.au.ibm.ctp.cba.parking.domain.ParkingUsers;
 
 public interface UsersRepository extends JpaRepository<ParkingUsers, Long>
 {
-    @Query("select a from ParkingUsers a where a.email = ?1 and a.accPassword = ?2")
-    ParkingUsers findByLogin(String userId, String password);
+    @Query("select a from ParkingUsers a where a.email = ?1")
+    ParkingUsers findByLogin(String userId);
 }

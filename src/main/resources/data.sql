@@ -4,12 +4,23 @@ values (1, 'pasapi@au1.ibm.com', 'apples', '0411151350');
 insert into parking_users (id, email, acc_password, mobileno)
 values (2, 'mthite@au1.ibm.com', 'welcome1', '0411151350');
 
+insert into parking_users (id, email, acc_password, mobileno)
+values (3, 'cconlon@au1.ibm.com', 'welcome1', '0477767000');
+
+insert into parking_users (id, email, acc_password, mobileno)
+values (4, 'Gavin.R.SMITH@cba.com.au', 'welcome1', '0400596339');
 
 insert into ticket_events(event_id, event_date, event_name, location, standium, user_id)
-values (72651, '2015-10-12', 'Rugby', 'ANZ Stadium', 'Sydeny Olympic Park', 1);
+values (72651, '2015-10-12', 'Rugby', 'ANZ Stadium', 'Sydney Olympic Park', 1);
 
 insert into ticket_events(event_id, event_date, event_name, location, standium, user_id)
-values (72652, '2015-10-12', 'Rugby', 'ANZ Stadium', 'Sydeny Olympic Park', 2);
+values (72652, '2015-10-12', 'Rugby', 'ANZ Stadium', 'Sydney Olympic Park', 2);
+
+insert into ticket_events(event_id, event_date, event_name, location, standium, user_id)
+values (72653, '2015-10-12', 'Rugby', 'ANZ Stadium', 'Sydney Olympic Park', 3);
+
+insert into ticket_events(event_id, event_date, event_name, location, standium, user_id)
+values (72654, '2015-10-12', 'Rugby', 'ANZ Stadium', 'Sydney Olympic Park', 4);
 
 insert into parking_locations(id, available_car_parks, location_name, parkinglocation, parking_maps_url)
 values (1, 42, 'SOP', '2DFA', 'https://www.google.com.au/maps/dir/%27%27/Sydney+Olympic+Park+NSW+2127/@-33.8519196,151.033,13z/data');
