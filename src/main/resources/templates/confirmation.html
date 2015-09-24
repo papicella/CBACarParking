@@ -39,6 +39,7 @@
             <ul class="nav navbar-nav navbar-right  ">
                 <li><a href="/">Home</a></li>
                 <li><a href="http://bluemix.net/">Bluemix</a></li>
+                <li><a th:href="@{/logout}">Logout</a></li>
                 <li><a href="/">[User: <span th:text="${session.userid}" />]</a></li>
             </ul>
         </div>
@@ -53,7 +54,15 @@
     </div>
 </div>
 
-<div class="alert alert-info fade in">
+<div class="bs-example">
+    <div class="progress">
+        <div class="progress-bar" style="width: 100%;">
+            100%
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-success fade in">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
     <strong>Success, Parking Location Confirmed!</strong> <b th:text="${actionStr}"></b>
 </div>

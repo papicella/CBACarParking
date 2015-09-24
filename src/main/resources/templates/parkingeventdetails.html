@@ -39,6 +39,7 @@
             <ul class="nav navbar-nav navbar-right  ">
                 <li><a href="/">Home</a></li>
                 <li><a href="http://bluemix.net/">Bluemix</a></li>
+                <li><a th:href="@{/logout}">Logout</a></li>
                 <li><a href="/">[User: <span th:text="${session.userid}" />]</a></li>
             </ul>
         </div>
@@ -53,8 +54,16 @@
     </div>
 </div>
 
+<div class="bs-example">
+    <div class="progress">
+        <div class="progress-bar" style="width: 66%;">
+            66%
+        </div>
+    </div>
+</div>
+
 <div class="bs-example" th:if="${parkingLocations}">
-    <div class="alert alert-info fade in">
+    <div class="alert alert-success fade in">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
         <strong>Success!</strong> Found <b th:text="${parkingLocationsCount}"></b> Parking Locations
     </div>

@@ -42,9 +42,22 @@ public class MainController
         return "login";
     }
 
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(Model model, HttpSession session)
+    {
+        session.invalidate();
+        return "login";
+    }
+
     @RequestMapping(value = "/book", method = RequestMethod.GET)
     public String book(Model model, HttpSession session)
     {
+        if (session.getAttribute("userid") == null)
+        {
+            model.addAttribute("loginerror", "Session Expired please login again");
+            return "login";
+        }
+
         RestTemplate restTemplate = new RestTemplate();
 
         ParkingUsers user = (ParkingUsers) session.getAttribute("user");
@@ -67,6 +80,12 @@ public class MainController
     @RequestMapping(value = "/parkinglocations", method = RequestMethod.GET)
     public String parkingLocations(Model model, HttpSession session)
     {
+        if (session.getAttribute("userid") == null)
+        {
+            model.addAttribute("loginerror", "Session Expired please login again");
+            return "login";
+        }
+
         List<ParkingLocations> parkingLocations = locationsRepository.findAll();
 
         model.addAttribute("parkingLocations", parkingLocations);
@@ -86,6 +105,12 @@ public class MainController
 
         // login using userid / password
         ParkingUsers user = usersRepository.findByLogin(userid);
+
+        if (user == null)
+        {
+            model.addAttribute("loginerror", "Unable to login using email id as \"" + userid + "\"");
+            return "login";
+        }
 
         List<TicketEvents> ticketEvents = ticketEventsRepository.findByUserid(user.getId());
 
